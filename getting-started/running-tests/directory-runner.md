@@ -19,7 +19,7 @@ println( r.run() )
 // Run all the specs in the tests.specs directory ONLY
 r = new testbox.system.TestBox(
 		directory={
-            mapping="tets.specs",
+            mapping="test.specs",
             recurse=false
       } )
 println( r.run() )
@@ -28,7 +28,7 @@ println( r.run() )
 // a custom lambda filter
 r = new testbox.system.TestBox(
       	directory={
-            mapping : "tets.specs",
+            mapping : "test.specs",
             filter : path -> findNoCase( "test", arguments.path ) ? true : false
       }) >
 println( r.run() )
@@ -37,7 +37,7 @@ println( r.run() )
 // a custom lambda filter and create a JSON report
 r = new testbox.system.TestBox(
       	directory={
-            mapping="tets.specs",
+            mapping="test.specs",
             filter : path -> findNoCase( "test", arguments.path ) ? true : false
       }) >
 fileWrite( 'testreports.json', r.run() )
@@ -67,14 +67,14 @@ CFML engines only allow you to run tests via the browser.  So create your script
 
 <cfset r = new testbox.system.TestBox(
       directory={
-            mapping="tets.specs",
+            mapping="test.specs",
             recurse=false
       }) >
 <cfoutput>#r.run()#</cfoutput>
 
 <cfset r = new testbox.system.TestBox(
       directory={
-            mapping="tets.specs",
+            mapping="test.specs",
             recurse=true,
             filter=function(path){
                   return ( findNoCase( "test", arguments.path ) ? true : false );
@@ -84,7 +84,7 @@ CFML engines only allow you to run tests via the browser.  So create your script
 
 <cfset r = new testbox.system.TestBox(
       directory={
-            mapping="tets.specs",
+            mapping="test.specs",
             recurse=true,
             filter=function(path){
                   return ( findNoCase( "test", arguments.path ) ? true : false );
